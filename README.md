@@ -1,1 +1,3 @@
-# amazing-events-Guzelian
+# Amazing Events, HTML - CSS
+
+# Maqueta MODULO 2 - JS
