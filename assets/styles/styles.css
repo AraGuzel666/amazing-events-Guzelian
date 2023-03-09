@@ -98,7 +98,9 @@ header {
     text-align: center;
     font-size: 15px;
     font-weight: bold;
+    cursor: pointer;
 }
+
 .check {
     cursor: pointer;
     background-color: #fff;
@@ -106,12 +108,13 @@ header {
     width: 15px;
     height: 15px;
     appearance: none;
+    margin-right: 20px;
     border: 2px solid #888;
 }
 
 .check:checked {
     background-color: rgb(27, 35, 39);
-    transform: scale(1.8, 1.8);
+    transform: scale(1.4, 1.4);
     transition: 500ms;
 }
 
@@ -143,6 +146,21 @@ header {
     justify-content: center;
     align-items: center;
 }
+
+.container-cards-past {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-cards-upcoming {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
 .card {
     display: flex;
     flex-flow: row wrap;
@@ -399,6 +417,9 @@ td {
     text-align: center;
 }
 
+.hide {
+    display:none;
+}
 
 
 
@@ -464,8 +485,15 @@ td {
 
     .col {
         display: flex;
+        flex-flow: row wrap;
+        justify-content:center;
+        align-items: center;
+    }
+
+    label {
+        display: flex;
         flex-flow: column wrap;
-        justify-content: space-between;
+        justify-content:center;
         align-items: center;
     }
 

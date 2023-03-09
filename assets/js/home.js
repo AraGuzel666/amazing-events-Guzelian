@@ -1,4 +1,6 @@
-import { upcomingEvents, pastEvents, renderCards } from "./logic.js";
+import { upcomingEvents, pastEvents, renderCards, noRepeatedCategories, renderCategories, containerCards } from "./logic.js";
 
-renderCards(upcomingEvents, "soon");
-renderCards(pastEvents, "past");
+renderCategories(noRepeatedCategories);
+renderCards(upcomingEvents, "soon", containerCards);
+renderCards(pastEvents, "past", containerCards);
+
