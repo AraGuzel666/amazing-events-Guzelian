@@ -3,4 +3,3 @@ import { upcomingEvents, pastEvents, renderCards, noRepeatedCategories, renderCa
 renderCategories(noRepeatedCategories);
 renderCards(upcomingEvents, "soon", containerCards);
 renderCards(pastEvents, "past", containerCards);
-

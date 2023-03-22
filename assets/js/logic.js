@@ -3,9 +3,34 @@ import { events, currentDate } from './events.js';
 export const containerCards = document.querySelector('.container-cards');
 export const containerCardsPast = document.querySelector('.container-cards-past');
 export const containerCardsUpcoming = document.querySelector('.container-cards-upcoming');
+
+
+const moreInfoButton = document.querySelector('.more-info');
+
 const searchInput = document.querySelector('#search-input');
 
 const categoryContainer = document.querySelector('#category-container');
+
+const renderDetails = (name, price, desc, image, container) => {
+    const detailCard = document.createElement('div')
+    detailCard.classList.add('details-box')
+    detailCard.innerHTML = `
+    <div class="img-details">
+        <img src="${image}" alt="Imagen prueba">
+    </div>
+    <div class="description-details">
+        <h2>${name}</h2>
+        <p>
+            <b>
+                <i class="fa-sharp fa-solid fa-tag"></i>
+                    Precio $ ${price}</b></p>
+        <p><b>Details</b></p>
+    <p>
+        ${desc}
+    </p>
+</div>`
+    container.appendChild(detailCard)
+}
 
 export const renderCards = (array, mode, container) => {
     if (mode === "soon") {
@@ -22,7 +47,7 @@ export const renderCards = (array, mode, container) => {
                     <i class="fa-sharp fa-solid fa-tag"></i>
                     Precio $ ${data.price}
                 </p>
-                <a href="./details.html">Ver más</a>
+                <a href="./details.html?name=${data.name}&price=${data.price}&description=${data.description}&image=${data.image}" class="more-info">More Info...</a>
             </div>`
             container.appendChild(card)
         }
@@ -42,7 +67,7 @@ export const renderCards = (array, mode, container) => {
                     <i class="fa-sharp fa-solid fa-tag"></i>
                     Precio $ ${data.price}
                 </p>
-                <a href="./details.html">Ver más</a>
+                <a href="./details.html?name=${data.name}&price=${data.price}&description=${data.description}&image=${data.image}" class="more-info">More Info...</a>
             </div>`
             container.appendChild(card)
         }
@@ -155,14 +180,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         else {
             containerCards.innerHTML = '';
-            const card = document.createElement('div')
-            card.classList.add('card')
-            card.innerHTML = `
+            const error = document.createElement('div')
+            error.innerHTML = `
             <h2>No results Found</h2>
-            <img src="assets/img/error.png">
-                <a href="./index.html">Home</a>
+            <img src="assets/img/error.png" class="error">
+                <p>Sorry, we couldn't find any results for "<span class="text-error">${searchInput.value}</span>".</p>
             </div>`
-            containerCards.appendChild(card)
+            containerCards.appendChild(error)
         }
         if (filteredEventsCat.length === 0 && filteredEvents.length > 0) {
             containerCards.innerHTML = '';
@@ -170,6 +194,8 @@ document.addEventListener("DOMContentLoaded", () => {
             renderCards(filteredPastCategory, 'past', containerCards)
         }
     });
+
+
 })
 
 
